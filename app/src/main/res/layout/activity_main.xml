@@ -1,0 +1,90 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                xmlns:fancy="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingRight="@dimen/activity_horizontal_margin"
+                android:paddingTop="@dimen/activity_vertical_margin"
+                android:paddingBottom="@dimen/activity_vertical_margin"
+                tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:hint="Access Token .."
+        />
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/twitter_oauth_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dip"
+        android:padding="5dp"
+        fancy:fb_borderColor="#FFFFFF"
+        fancy:fb_borderWidth="2dp"
+        fancy:fb_defaultColor="#55acee"
+        fancy:fb_focusColor="#8cc9f8"
+        fancy:fb_iconPaddingLeft="40dp"
+        fancy:fb_iconResource="@mipmap/twitter"
+        fancy:fb_text="Login with OAuth"
+        fancy:fb_textColor="#FFFFFF"
+        android:layout_below="@+id/textview"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+    <EditText
+        android:id="@+id/edittext"
+        android:layout_width="200dip"
+        android:layout_height="wrap_content"
+        android:hint="Input message"
+        android:textSize="15sp"
+        android:layout_below="@+id/twitter_oauth_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_toLeftOf="@+id/submit_button"
+        android:layout_toStartOf="@+id/submit_button"/>
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/submit_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        fancy:fb_borderColor="#FFFFFF"
+        fancy:fb_borderWidth="1dp"
+        fancy:fb_defaultColor="#3b5998"
+        fancy:fb_focusColor="#5577bd"
+        fancy:fb_fontIconResource="@string/icon_share"
+        fancy:fb_fontIconSize="10sp"
+        fancy:fb_iconPosition="right"
+        fancy:fb_iconPaddingLeft="20dp"
+        fancy:fb_iconPaddingRight= "0dp"
+        fancy:fb_radius="30dp"
+        fancy:fb_text="submit"
+        fancy:fb_textColor="#FFFFFF"
+        android:layout_alignTop="@+id/edittext"
+        android:layout_alignRight="@+id/twitter_oauth_button"
+        android:layout_alignEnd="@+id/twitter_oauth_button"/>
+
+    <mehdi.sakout.fancybuttons.FancyButton
+        android:id="@+id/twitter_logout_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        fancy:fb_borderColor="#FFFFFF"
+        fancy:fb_borderWidth="2dp"
+        fancy:fb_defaultColor="#55acee"
+        fancy:fb_focusColor="#8cc9f8"
+        fancy:fb_iconPaddingLeft="40dp"
+        fancy:fb_iconResource="@mipmap/twitter"
+        fancy:fb_text="Logout"
+        fancy:fb_textColor="#FFFFFF"
+        android:layout_below="@+id/edittext"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="37dp"/>
+
+
+</RelativeLayout>

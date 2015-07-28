@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ author: Teukgeon Kwon
+  ~ email: ktg@weeppp.com
+  ~ blog: weeppp.com
+  ~
+  ~ Copyright (c) 2015. all rights reserved.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+                android:background="#70000000">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dip">
+
+        <com.neovisionaries.android.twitter.TwitterOAuthView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/webview"
+            />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="32dip"
+        android:layout_height="32dip"
+        android:src="@drawable/ic_cancel"
+        android:clickable="true"
+        android:layout_marginTop="5dip"
+        android:layout_marginLeft="5dip"
+        android:id="@+id/cancel_imageview"
+        android:onClick="onClickCancel"/>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:id="@+id/progressbar"/>
+</RelativeLayout>
