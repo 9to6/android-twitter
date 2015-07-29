@@ -36,18 +36,15 @@ public final class AndroidTwitter {
 
     private static boolean mDebugEnabled;
 
-    private AndroidTwitter()
-    {
+    private AndroidTwitter() {
         mDebugEnabled = false;
     }
 
-    public void startLogin(Activity activity)
-    {
+    public void startLogin(Activity activity) {
         LoginManager.getInstance().startLogin(activity, mTwitterConsumerKey, mTwitterConsumerSecret);
     }
 
-    public void twitter(final StatusUpdate statusUpdate)
-    {
+    public void twitter(final StatusUpdate statusUpdate) {
         ConfigurationBuilder configurationBuilder = new ConfigurationBuilder();
         configurationBuilder.setOAuthConsumerKey(mTwitterConsumerKey);
         configurationBuilder.setOAuthConsumerSecret(mTwitterConsumerSecret);
@@ -55,7 +52,7 @@ public final class AndroidTwitter {
         configurationBuilder.setOAuthAccessTokenSecret(mAccessToken.getTokenSecret());
         final Configuration configuration = configurationBuilder.build();
 
-        new AsyncTask<Void, Void, Object>(){
+        new AsyncTask<Void, Void, Object>() {
             @Override
             protected Object doInBackground(Void... params) {
                 Object ret;
@@ -88,8 +85,7 @@ public final class AndroidTwitter {
         return mAccessToken != null;
     }
 
-    public void setOAuthListener(final OAuthListener listener)
-    {
+    public void setOAuthListener(final OAuthListener listener) {
         LoginManager.getInstance().registerListener(new LoginManager.OAuthListener() {
             @Override
             public void onSuccess(AccessToken accessToken) {
@@ -105,8 +101,7 @@ public final class AndroidTwitter {
         });
     }
 
-    public void setStatusUpdateListener(final StatusUpdateListener listener)
-    {
+    public void setStatusUpdateListener(final StatusUpdateListener listener) {
         mStatusUpdateListener = listener;
     }
 
@@ -130,8 +125,7 @@ public final class AndroidTwitter {
         mAccessToken = accessToken;
     }
 
-    public static void setDebugEnabled(boolean enabled)
-    {
+    public static void setDebugEnabled(boolean enabled) {
         mDebugEnabled = enabled;
     }
 
@@ -145,22 +139,19 @@ public final class AndroidTwitter {
 //        }
 //    }
 
-    public interface StatusUpdateListener
-    {
+    public interface StatusUpdateListener {
         void onSuccess(twitter4j.Status status);
 
         void onFailure(TwitterException exception);
     }
 
-    public interface OAuthListener
-    {
+    public interface OAuthListener {
         void onSuccess(AccessToken accessToken);
 
         void onFailure(int errorCode);
     }
 
-    public static class Builder
-    {
+    public static class Builder {
         private String mTwitterConsumerKey;
         private String mTwitterConsumerSecret;
         private String mTwitterAccessToken;

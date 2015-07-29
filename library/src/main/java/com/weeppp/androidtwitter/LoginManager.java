@@ -59,8 +59,7 @@ public class LoginManager {
         return _loginManager;
     }
 
-    public void startLogin(Activity activity, String consumerKey, String consumerSecret)
-    {
+    public void startLogin(Activity activity, String consumerKey, String consumerSecret) {
         Intent intent = new Intent(activity, LoginActivity.class);
         intent.putExtra("consumerKey", consumerKey);
         intent.putExtra("consumerSecret", consumerSecret);
@@ -77,8 +76,7 @@ public class LoginManager {
         return mListener;
     }
 
-    public interface OAuthListener
-    {
+    public interface OAuthListener {
         void onSuccess(AccessToken accessToken);
 
         void onFailure(int errorCode);

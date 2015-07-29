@@ -55,8 +55,7 @@ public class MainActivity extends AppCompatActivity {
         initialize();
     }
 
-    private void initialize()
-    {
+    private void initialize() {
         try {
             AndroidTwitter.Builder builder = new AndroidTwitter.Builder()
                     .setConsumerKey(CONSUMER_KEY)
@@ -78,16 +77,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private AccessToken getAccessToken()
-    {
+    private AccessToken getAccessToken() {
         String token = mSharedPreferences.getString(PROPERTY_TOKEN, null);
         String tokenSecret = mSharedPreferences.getString(PROPERTY_TOKEN_SECRET, null);
         if (TextUtils.isEmpty(token) || TextUtils.isEmpty(tokenSecret)) return null;
         return new AccessToken(token, tokenSecret);
     }
 
-    private void saveAccessToken(AccessToken accessToken)
-    {
+    private void saveAccessToken(AccessToken accessToken) {
         SharedPreferences.Editor editor = mSharedPreferences.edit();
         editor.putString(PROPERTY_TOKEN, accessToken.getToken());
         editor.commit();
@@ -97,8 +94,7 @@ public class MainActivity extends AppCompatActivity {
         editor.commit();
     }
 
-    private void deleteAccessToken()
-    {
+    private void deleteAccessToken() {
         SharedPreferences.Editor editor = mSharedPreferences.edit();
         editor.remove(PROPERTY_TOKEN);
         editor.commit();
@@ -132,14 +128,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.twitter_oauth_button)
-    public void onClickOAuthButton(View view)
-    {
+    public void onClickOAuthButton(View view) {
         if (mAndroidTwitter != null) mAndroidTwitter.startLogin(this);
     }
 
     @OnClick(R.id.submit_button)
-    public void onClickSubmitButton(View view)
-    {
+    public void onClickSubmitButton(View view) {
         if (mAndroidTwitter != null) {
             String twit = "hello twitter!";
             if (mEditText.getText().length() > 0) {
@@ -151,16 +145,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @OnClick(R.id.twitter_logout_button)
-    public void onClickLogoutButton(View view)
-    {
+    public void onClickLogoutButton(View view) {
         deleteAccessToken();
         initialize();
         mAccessTextView.setText("");
         Toast.makeText(MainActivity.this, "deleted access token", Toast.LENGTH_SHORT).show();
     }
 
-    class MyOAuthListener implements AndroidTwitter.OAuthListener
-    {
+    class MyOAuthListener implements AndroidTwitter.OAuthListener {
         @Override
         public void onSuccess(AccessToken accessToken) {
             saveAccessToken(accessToken);
@@ -175,8 +167,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    class MyStatausUpdateListener implements AndroidTwitter.StatusUpdateListener
-    {
+    class MyStatausUpdateListener implements AndroidTwitter.StatusUpdateListener {
 
         @Override
         public void onSuccess(Status status) {

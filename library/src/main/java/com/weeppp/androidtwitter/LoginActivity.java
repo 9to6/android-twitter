@@ -54,8 +54,7 @@ public class LoginActivity extends Activity implements TwitterOAuthView.Listener
         overridePendingTransition(R.anim.anim_no_change, R.anim.anim_to_middle);
     }
 
-    private void showLoginView(boolean show)
-    {
+    private void showLoginView(boolean show) {
         ViewGroup rootView = (ViewGroup) ViewHelper.getRootView(this);
         if (show) {
             rootView.addView(mTwitterOAuthView);
@@ -65,8 +64,7 @@ public class LoginActivity extends Activity implements TwitterOAuthView.Listener
         }
     }
 
-    public void onClickCancel(View view)
-    {
+    public void onClickCancel(View view) {
         setResult(RESULT_CANCELED);
         finish();
     }
